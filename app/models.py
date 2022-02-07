@@ -1,5 +1,4 @@
 from . import db
-from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import login_manager
@@ -38,8 +37,8 @@ class Comment(db.Model):
     __tablename__ = 'comment'
 
     id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'role',lazy="dynamic")
+    comment = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'comment',lazy="dynamic")
 
     def __repr__(self):
         return f'User {self.name}'

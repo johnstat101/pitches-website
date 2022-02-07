@@ -1,8 +1,8 @@
 from ..import db, photos
 from flask import render_template, request, redirect, url_for,abort
 from . import main
-from ..models import Review, User
-from .forms import ReviewForm, UpdateProfile
+from ..models import Comment, User
+from .forms import UpdateProfile, CommentForm
 from flask_login import login_required, current_user
 import markdown2
 
