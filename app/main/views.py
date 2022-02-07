@@ -9,6 +9,7 @@ import markdown2
 
 # views
 @main.route('/')
+@login_required
 def index():
     '''
     View root page function that returns the index page and its data
