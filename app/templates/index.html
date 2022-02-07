@@ -1,1 +1,52 @@
-<h2>Hello</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- extend base.html -->
+    {% extends 'base.html'%}
+
+    <!-- import macro -->
+    {% import 'macros.html' as macro%}
+
+    <!-- styles block -->
+    {% block styles %}
+    <!-- variable block to prevent code override -->
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
+
+    <!-- define if else block -->
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best Movie Review website </title>
+    {% endif %}
+</head>
+{% block content %}
+
+<div class="container">
+    <form>
+        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+        <input type="submit" value="Submit" class="btn btn-default">
+    </form>
+
+</div>
+
+<!-- Popular movie -->
+<h3> Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h3> Upcoming Movies </h3>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
+{% endblock %}
+
+</html>
