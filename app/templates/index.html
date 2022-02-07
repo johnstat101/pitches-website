@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- extend base.html -->
+{% extends 'base.html'%}
 
 <head>
     <meta charset="UTF-8">
-    <!-- extend base.html -->
-    {% extends 'base.html'%}
-
     <!-- import macro -->
     {% import 'macros.html' as macro%}
 
@@ -19,34 +16,17 @@
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> Welcome to the best Movie Review website </title>
+    <title> Pitches Website </title>
     {% endif %}
 </head>
 {% block content %}
 
-<div class="container">
-    <form>
-        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
-        <input type="submit" value="Submit" class="btn btn-default">
-    </form>
-
-</div>
-
 <!-- Popular movie -->
 <h3> Popular Movies</h3>
 <ul>
-    {{ macro.displayMovieList(popular)}}
+    <li>Pitches</li>
 </ul>
-<!-- Upcoming movie  -->
-<h3> Upcoming Movies </h3>
-<ul>
-    {{ macro.displayMovieList(upcoming)}}
-</ul>
-<!-- Now showing movie -->
-<h3>Now Showing</h3>
-<ul>
-    {{ macro.displayMovieList(now_showing)}}
-</ul>
+
 {% endblock %}
 
 </html>
