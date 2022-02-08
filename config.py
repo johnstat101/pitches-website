@@ -32,10 +32,10 @@ class ProdConfig(Config):
 
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Njoro@localhost/watchlist_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Njoro@localhost/watchlist_test'
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Njoro@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Njoro@localhost/watchlist'
     DEBUG = True
 
 config_options = {
