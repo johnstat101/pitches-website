@@ -1,6 +1,9 @@
 <!-- extend base.html -->
 {% extends 'base.html'%}
 
+<!-- import macro -->
+{% import 'macros.html' as macro %}
+
 <head>
     <meta charset="UTF-8">
 
@@ -20,7 +23,8 @@
 {% block content %}
 
 <div class="container" id="particles-js">
-    <h2 class="text-center" id="posts">All Pitches</h2>
+    <h4 class="text-center" id="posts"><a class="nav-link" href="{{url_for('main.new_pitch')}}">Create New Pitch</a></h4>
+    <hr>
     <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
         <li class="nav-item">
             <a id="cats" class="nav-link" data-toggle="tab" href="#all"><strong>All Pitches</strong> </a>
@@ -35,14 +39,15 @@
             <a class="nav-link" id="cats" data-toggle="tab" href="#ads">Advert Pitches</a>
         </li>
     </ul>
-    <div class="tab-content">
-        <div class="container tab-pane active" id="all"><br> {{ macro.display(pitches) }}
+    <hr>
+    <div class="tab-content" style="display: flex;">
+        <div class="container tab-pane active" id="all">{{ macro.display(pitches) }}
         </div>
-        <div class="container tab-pane fade" id="event"><br> {{ macro.display(event)}}
+        <div class="container tab-pane fade" id="event">{{ macro.display(event)}}
         </div>
-        <div class="container tab-pane fade" id="jobs"><br> {{ macro.display(job) }}
+        <div class="container tab-pane fade" id="jobs">{{ macro.display(job) }}
         </div>
-        <div class="container tab-pane fade" id="ads"><br> {{ macro.display(advertisement) }}
+        <div class="container tab-pane fade" id="ads">{{ macro.display(advertisement) }}
 
         </div>
     </div>

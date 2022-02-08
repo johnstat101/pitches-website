@@ -69,7 +69,7 @@ def new_pitch():
 
     if form.validate_on_submit():
         title = form.title.data
-        pitch = form.post.data
+        pitch = form.pitch.data
         category = form.category.data
         user_id = current_user
         new_pitch_object = Pitch(pitch=pitch,user_id=current_user._get_current_object().id,category=category,title=title)

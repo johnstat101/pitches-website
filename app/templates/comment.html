@@ -4,19 +4,25 @@
 
         {% if all_comments %}
         <div class="col-md-7">
-            <h3 class="text-center" id="coms">All comments for the post</h3>
-            {% for comment in all_comments %}
-            <div class="card w-90 mb-3">
-                <div class="card-body">
-                    <h5>{{comment.pitch.title}}</h5>
-                    <p class="card-title">{{ comment.comment }}</p>
-                    <p class="card-text">--- {{comment.user.username}}</p>
-                </div>
-            </div>
-            {% endfor %}
+            <h3 id="comments">All comments for this post</h3>
+            <ul class="list-group">
+                {% for comment in all_comments %}
+                <li class="list-group-item">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5>{{comment.pitch.title}}</h5>
+                            <div class="panel-body">
+                                <p class="card-title">{{ comment.comment }}</p>
+                                <p class="card-text">--- by {{comment.user.username}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
         </div>
         <div class="col-md-5  commentform">
-
             {{wtf.quick_form(form)}}
         </div>
     </div>

@@ -8,21 +8,27 @@
         <div class="col-md-2"></div>
         <!-- displaying  Username-->
         <div class="col-md-4">
-            <h3> {{user.username| capitalize}} </h3>
-            <hr>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3> {{user.username| capitalize}} </h3>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <!--Displaying user bio-->
+                    {% if user.bio %}
+                    <p> {{user.bio}}</p>
+                    {%else%}
+                    <p><i>---add your bio</i></p>
+                    {% endif %}
+                    <br>
 
-            <!--Displaying user bio-->
-            {% if user.bio %}
-            <p> {{user.bio}}</p>
-            {%else%}
-            <p><i>Please edit to add your bio</i></p>
-            {% endif %}
-            <br>
-            <!-- edit profile -->
-            {% if user == current_user %}
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-            <!-- endif -->
-            {% endif %}
+                    <!-- edit profile -->
+                    {% if user == current_user %}
+                    <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+                    <!-- endif -->
+                    {% endif %}
+                </div>
+            </div>
         </div>
 
         <!--Display profile photo-->
