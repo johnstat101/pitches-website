@@ -4,20 +4,24 @@
 {% block content %}
 
 <div class="container">
-    {% if user == current_user %}
-    <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-    <!-- endif -->
-    {% endif %}
     <div class="row">
+        <div class="col-md-2"></div>
         <!-- displaying  Username-->
         <div class="col-md-4">
             <h3> {{user.username| capitalize}} </h3>
+            <hr>
 
             <!--Displaying user bio-->
             {% if user.bio %}
             <p> {{user.bio}}</p>
             {%else%}
-            <p> {{user.username| capitalize}} has no bio </p>
+            <p><i>Please edit to add your bio</i></p>
+            {% endif %}
+            <br>
+            <!-- edit profile -->
+            {% if user == current_user %}
+            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+            <!-- endif -->
             {% endif %}
         </div>
 
@@ -36,6 +40,7 @@
             </form>
             {% endif %}
         </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 {% endblock %}
