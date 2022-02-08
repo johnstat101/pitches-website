@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+<!-- import bootstrap -->
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<!-- edit base block content -->
+{% block content %}
+
+<div id="particles-js">
+    <div class=" row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="postform">
+            <h2 class="text-center">Create New Pitch</h2>
+            {{wtf.quick_form(form)}}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{% endblock%}
