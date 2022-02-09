@@ -15,10 +15,13 @@ def index():
     View root page function that returns the index page and its data
     '''
     pitches = Pitch.query.all()
-    job = Pitch.query.filter_by(category = 'Job').all()
+    business = Pitch.query.filter_by(category = 'Business').all()
+    product = Pitch.query.filter_by(category = 'Product').all()
     event = Pitch.query.filter_by(category = 'Events').all()
-    advertisement = Pitch.query.filter_by(category = 'Advertisement').all()
-    return render_template('index.html', job = job,event = event, pitches = pitches,advertisement= advertisement)
+    job = Pitch.query.filter_by(category = 'Job').all()
+    promotion = Pitch.query.filter_by(category = 'Promotion').all()
+    
+    return render_template('index.html',promotion = promotion,business = business,product = product,job = job,event = event, pitches = pitches)
 
 @main.route('/user/<uname>')
 def profile(uname):
